@@ -12,6 +12,7 @@ const ChatWidget = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [inputValue, setInputValue] = useState('');
   const [isTyping, setIsTyping] = useState(false);
+  
   const [messages, setMessages] = useState<Message[]>([
     {
       id: 1,
@@ -24,7 +25,7 @@ const ChatWidget = () => {
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
-  const API_URL = "https://script.google.com/macros/s/AKfycbw7w1IVQByuZRhLMiAy907UcjFDTsc4egevRhJT3u4YxdTrmGlcd25q0tOGO8qZkJII/exec";
+  const API_URL = "https://script.google.com/macros/s/AKfycbyCxtxWTQA3d01APg_Io5IVoWrVzeE-5ttWoiSx3PAqBq6epVAjhYQqKGGL4s5HTZGa/exec";
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -64,16 +65,25 @@ const ChatWidget = () => {
       sender: 'user',
       timestamp: new Date()
     };
-    
-    setMessages(prev => [...prev, userMsg]);
+
+    const newMessages = [...messages, userMsg];
+    setMessages(newMessages);
     setInputValue('');
     setIsTyping(true);
+
+    const historyPayload = newMessages.slice(-6).map(msg => ({
+      sender: msg.sender,
+      text: msg.text
+    }));
 
     try {
       const response = await fetch(API_URL, {
         method: 'POST',
         headers: { "Content-Type": "text/plain;charset=utf-8" },
-        body: JSON.stringify({ message: userMsg.text }),
+        body: JSON.stringify({ 
+          message: userMsg.text,
+          history: historyPayload 
+        }),
       });
 
       const data = await response.json();
@@ -241,7 +251,6 @@ const ChatWidget = () => {
       </div>
 
       <div className="flex items-center gap-4 relative z-50">
-        
         <div 
             className={`
                 hidden md:flex items-center gap-2 bg-white text-space-900 px-4 py-2.5 rounded-full shadow-[0_0_20px_rgba(255,255,255,0.3)] 
@@ -269,7 +278,6 @@ const ChatWidget = () => {
             `}
         >
             {isOpen ? <X size={32} /> : <MessageCircle size={32} className="fill-current" />}
-            
             {!isOpen && (
             <span className="absolute top-0 right-0 flex h-5 w-5 -mt-1 -mr-1">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
@@ -278,7 +286,6 @@ const ChatWidget = () => {
             )}
         </button>
       </div>
-
     </div>
   );
 };
