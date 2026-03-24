@@ -24,7 +24,7 @@ const ChatWidget = () => {
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
-  const API_URL = "https://script.google.com/macros/s/AKfycbwwtVFXxlDPhuaSwEWB29_9i28FXbzrzmB4otsQ3Bq_2uS2c5epD4LRfUXwJky3TNXY/exec";
+  const API_URL = "https://script.google.com/macros/s/AKfycbzKjSfC6MV_bni4x44KN6_-LvDLGvUsjC1FKurKH6H2BlyxbUiinxDR_9ndQYfuS4oa/exec";
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
