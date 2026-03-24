@@ -4,7 +4,7 @@ import { cn } from '../utils/cn';
 const navLinks = [
   { name: 'Solusi', href: '#solusi' },
   { name: 'Cara Kerja', href: '#cara-kerja' },
-  { name: 'Cerita', href: '#cerita' }
+  { name: 'Hasil', href: '#hasil' }
 ];
 
 export default function Navbar() {
