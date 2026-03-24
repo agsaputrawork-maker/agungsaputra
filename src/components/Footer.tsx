@@ -46,7 +46,7 @@ export default function Footer() {
           </a>
 
           <nav className="flex flex-wrap justify-center gap-6 md:gap-10 text-sm font-medium text-slate-400" aria-label="Footer Navigation">
-            <Link To="/privacy"
+            <Link to="/privacy"
               className="hover:text-white transition-colors relative group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500 rounded-sm"
             >
               Privasi
