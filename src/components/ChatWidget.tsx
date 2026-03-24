@@ -67,7 +67,7 @@ const ChatWidget = () => {
 
       const aiMsg: Message = {
         id: Date.now() + 1,
-        text: data.reply || data.text || "Maaf, saya sedang mengalami gangguan koneksi. Coba lagi nanti.", // Sesuaikan dengan key JSON return dari Apps Script Anda
+        text: data.reply || data.text || "Maaf, saya sedang mengalami gangguan koneksi. Coba lagi nanti.",
         sender: 'ai',
         timestamp: new Date()
       };
