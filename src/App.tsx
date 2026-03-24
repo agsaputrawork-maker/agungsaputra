@@ -4,6 +4,7 @@ import Navbar from './components/Navbar';
 import ScrollProgress from './components/ScrollProgress';
 import Background from './components/Background';
 import Footer from './components/Footer';
+import ChatWidget from './components/ChatWidget';
 
 const Home = lazy(() => import('./pages/Home'));
 const Privacy = lazy(() => import('./pages/Privacy'));
@@ -37,7 +38,7 @@ function App() {
         </main>
 
         <Footer />
-        
+        <ChatWidget />
       </div>
     </Router>
   );
