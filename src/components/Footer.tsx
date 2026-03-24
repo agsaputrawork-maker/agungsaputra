@@ -51,7 +51,7 @@ export default function Footer() {
             >
               Privasi
               <span className="absolute -bottom-1 left-0 w-0 h-px bg-cyan-500 transition-all duration-300 group-hover:w-full" />
-            </a>
+            </Link>
             <a 
               href="#" 
               className="hover:text-white transition-colors relative group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500 rounded-sm"
