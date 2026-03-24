@@ -38,12 +38,15 @@ export default function Navbar() {
           >
             <div className="relative w-10 h-10 flex items-center justify-center">
               <div className="absolute inset-0 bg-cyan-500/20 rounded-full blur-md group-hover:bg-cyan-500/40 transition-colors duration-300" />
-              <img 
-                src="/LogoAgung.png" 
-                alt="Agung AI Logo" 
-                className="w-full h-full object-contain relative z-10 group-hover:scale-110 transition-transform duration-300"
-                loading="eager"
-              />
+                <img 
+                  src="/LogoAgung.webp"  {/* Lebih baik jika diganti .webp hasil resize 80px */}
+                  alt="Agung AI Logo" 
+                  width="40"            {/* Tambahkan ini */}
+                  height="40"           {/* Tambahkan ini */}
+                  className="w-full h-full object-contain relative z-10 group-hover:scale-110 transition-transform duration-300"
+                  loading="eager"
+                  decoding="async"      {/* Tambahkan ini untuk performa */}
+                />
             </div>
             <span className="font-heading font-bold text-xl md:text-2xl text-white tracking-tight transition-colors group-hover:text-cyan-50">
               Agung<span className="text-cyan-500 font-medium">AI</span>
