@@ -33,12 +33,15 @@ export default function Footer() {
           >
             <div className="relative w-10 h-10 flex items-center justify-center">
               <div className="absolute inset-0 bg-cyan-500/10 rounded-full blur-md group-hover:bg-cyan-500/30 transition-colors duration-500" />
-              <img 
-                src="/LogoAgung.png" 
-                alt="Agung AI Logo" 
-                className="w-full h-full object-contain relative z-10 group-hover:scale-110 transition-transform duration-500"
-                loading="lazy"
-              />
+                <img 
+                  src="/LogoAgung.webp"
+                  alt="Agung AI Logo" 
+                  width="40"
+                  height="40"
+                  className="w-full h-full object-contain relative z-10 group-hover:scale-110 transition-transform duration-500"
+                  loading="lazy"
+                  decoding="async"
+                />
             </div>
             <span className="font-heading font-bold text-xl md:text-2xl text-white tracking-tight group-hover:text-cyan-50 transition-colors">
               Agung<span className="text-cyan-500 font-medium">AI</span>
