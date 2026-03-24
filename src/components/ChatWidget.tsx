@@ -12,11 +12,10 @@ const ChatWidget = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [inputValue, setInputValue] = useState('');
   const [isTyping, setIsTyping] = useState(false);
-
   const [messages, setMessages] = useState<Message[]>([
     {
       id: 1,
-      text: "Halo! 👋 Saya Agung AI. Ada yang bisa saya bantu jelaskan tentang layanan kami hari ini?",
+      text: "Halo! 👋 Saya Agung AI.\n\nAda yang bisa saya bantu jelaskan tentang layanan atau fitur website kami hari ini?",
       sender: 'ai',
       timestamp: new Date()
     }
@@ -25,7 +24,7 @@ const ChatWidget = () => {
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
-  const API_URL = "https://script.google.com/macros/s/AKfycbxI5X8coJ9c2P_m0dVi6qOetwPAfIw7LLuVsw5C7Kt5yZoAsI-rhk9HO50QxZbQg4uj/exec";
+  const API_URL = "https://script.google.com/macros/s/AKfycbw7w1IVQByuZRhLMiAy907UcjFDTsc4egevRhJT3u4YxdTrmGlcd25q0tOGO8qZkJII/exec";
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -40,6 +39,20 @@ const ChatWidget = () => {
       setTimeout(() => inputRef.current?.focus(), 100);
     }
   }, [isOpen]);
+
+  const formatMessage = (text: string) => {
+    return text.split('\n').map((line, i) => (
+      <div key={i} className={`${line.trim() === '' ? 'h-2' : 'mb-1 last:mb-0'}`}>
+        {line.split(/(\*\*.*?\*\*)/).map((part, j) => 
+          part.startsWith('**') && part.endsWith('**') ? (
+            <strong key={j} className="text-white font-bold">{part.slice(2, -2)}</strong>
+          ) : (
+            part
+          )
+        )}
+      </div>
+    ));
+  };
 
   const handleSendMessage = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -108,9 +121,7 @@ const ChatWidget = () => {
           ${isOpen ? 'scale-100 opacity-100 translate-y-0 translate-x-0' : 'scale-0 opacity-0 translate-y-20 translate-x-10 pointer-events-none'}
         `}
       >
-
         <div className="bg-gradient-to-r from-cyan-950/90 to-blue-950/90 p-4 border-b border-white/10 flex justify-between items-center backdrop-blur-md relative overflow-hidden">
-
           <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500"></div>
 
           <div className="flex items-center gap-3 z-10">
@@ -147,7 +158,6 @@ const ChatWidget = () => {
         </div>
 
         <div className="flex-1 overflow-y-auto p-4 space-y-5 scrollbar-thin scrollbar-thumb-cyan-900/50 scrollbar-track-transparent">
-
             <div className="text-center">
                 <span className="text-[10px] bg-space-800/50 text-slate-500 px-3 py-1 rounded-full border border-white/5">
                     Hari ini
@@ -172,7 +182,9 @@ const ChatWidget = () => {
                   ? 'bg-cyan-600 text-white rounded-2xl rounded-br-none' 
                   : 'bg-space-800 border border-white/5 text-slate-200 rounded-2xl rounded-bl-none'}
               `}>
-                {msg.text}
+                <div className="whitespace-pre-wrap">
+                  {msg.sender === 'ai' ? formatMessage(msg.text) : msg.text}
+                </div>
                 <div className={`text-[10px] mt-1.5 flex items-center gap-1 ${msg.sender === 'user' ? 'text-cyan-100 justify-end' : 'text-slate-500'}`}>
                     {msg.timestamp.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
                 </div>
@@ -222,7 +234,7 @@ const ChatWidget = () => {
           </div>
           <div className="text-center mt-2.5">
             <p className="text-[9px] text-slate-600 uppercase tracking-widest font-medium">
-               Powered by Agung Saputra
+               Powered by Google Gemini Pro
             </p>
           </div>
         </form>
@@ -257,7 +269,7 @@ const ChatWidget = () => {
             `}
         >
             {isOpen ? <X size={32} /> : <MessageCircle size={32} className="fill-current" />}
-
+            
             {!isOpen && (
             <span className="absolute top-0 right-0 flex h-5 w-5 -mt-1 -mr-1">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
