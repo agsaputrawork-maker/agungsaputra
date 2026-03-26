@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { MessageCircle, X, Send, Bot, User, RefreshCw, Loader2, Sparkles, ChevronRight } from 'lucide-react';
+import { MessageCircle, X, Send, Bot, User, RefreshCw, Loader2, Zap, ChevronRight } from 'lucide-react';
 
 type Message = {
   id: number;
@@ -16,7 +16,7 @@ const ChatWidget = () => {
   const [messages, setMessages] = useState<Message[]>([
     {
       id: 1,
-      text: "Halo! 👋 Saya Agung AI.\n\nAda yang bisa saya bantu jelaskan tentang layanan atau fitur website kami hari ini?",
+      text: "Halo Trader! 👋 Saya Assistant Gold Pulse.\n\nBingung cara join grup VIP atau butuh info signal XAUUSD hari ini? Silakan tanya saya.",
       sender: 'ai',
       timestamp: new Date()
     }
@@ -46,7 +46,7 @@ const ChatWidget = () => {
       <div key={i} className={`${line.trim() === '' ? 'h-2' : 'mb-1 last:mb-0'}`}>
         {line.split(/(\*\*.*?\*\*)/).map((part, j) => 
           part.startsWith('**') && part.endsWith('**') ? (
-            <strong key={j} className="text-white font-bold">{part.slice(2, -2)}</strong>
+            <strong key={j} className="font-bold">{part.slice(2, -2)}</strong>
           ) : (
             part
           )
@@ -90,7 +90,7 @@ const ChatWidget = () => {
 
       const aiMsg: Message = {
         id: Date.now() + 1,
-        text: data.reply || data.text || "Maaf, koneksi ke otak AI terputus.",
+        text: data.reply || data.text || "Maaf, server sedang sibuk menganalisa market.",
         sender: 'ai',
         timestamp: new Date()
       };
@@ -100,7 +100,7 @@ const ChatWidget = () => {
     } catch (error) {
       const errorMsg: Message = {
         id: Date.now() + 1,
-        text: "Maaf, terjadi kesalahan jaringan. Mohon cek koneksi internet Anda.",
+        text: "Maaf, koneksi terputus. Mohon periksa internet Anda.",
         sender: 'ai',
         timestamp: new Date()
       };
@@ -113,7 +113,7 @@ const ChatWidget = () => {
   const handleReset = () => {
     setMessages([{
       id: Date.now(),
-      text: "Sesi baru dimulai. Silakan tanya apa saja! 🚀",
+      text: "Sesi baru dimulai. Ada yang bisa saya bantu tentang trading Gold? 📈",
       sender: 'ai',
       timestamp: new Date()
     }]);
@@ -125,28 +125,28 @@ const ChatWidget = () => {
       <div 
         className={`
           mb-4 w-[90vw] sm:w-[400px] max-h-[600px] h-[75vh] sm:h-[550px]
-          bg-space-900/95 backdrop-blur-xl border border-white/10 
-          rounded-2xl shadow-[0_0_60px_-15px_rgba(6,182,212,0.6)] overflow-hidden 
+          bg-[#0a0f1c]/95 backdrop-blur-xl border border-yellow-500/20 
+          rounded-2xl shadow-[0_0_60px_-15px_rgba(234,179,8,0.3)] overflow-hidden 
           transition-all duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)] origin-bottom-right flex flex-col pointer-events-auto
           ${isOpen ? 'scale-100 opacity-100 translate-y-0 translate-x-0' : 'scale-0 opacity-0 translate-y-20 translate-x-10 pointer-events-none'}
         `}
       >
-        <div className="bg-gradient-to-r from-cyan-950/90 to-blue-950/90 p-4 border-b border-white/10 flex justify-between items-center backdrop-blur-md relative overflow-hidden">
-          <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500"></div>
+        <div className="bg-gradient-to-r from-yellow-950/90 to-black/90 p-4 border-b border-yellow-500/20 flex justify-between items-center backdrop-blur-md relative overflow-hidden">
+          <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-yellow-400 via-yellow-600 to-yellow-800"></div>
 
           <div className="flex items-center gap-3 z-10">
             <div className="relative group">
-              <div className="w-11 h-11 rounded-full bg-gradient-to-tr from-cyan-500 to-blue-700 flex items-center justify-center shadow-lg shadow-cyan-500/20 group-hover:scale-105 transition-transform">
-                <Sparkles size={20} className="text-white fill-white/20" />
+              <div className="w-11 h-11 rounded-full bg-gradient-to-tr from-yellow-400 to-yellow-600 flex items-center justify-center shadow-lg shadow-yellow-500/20 group-hover:scale-105 transition-transform">
+                <Zap size={20} className="text-black fill-black/20" />
               </div>
-              <span className="absolute bottom-0 right-0 w-3 h-3 bg-green-500 border-2 border-space-900 rounded-full animate-pulse"></span>
+              <span className="absolute bottom-0 right-0 w-3 h-3 bg-green-500 border-2 border-black rounded-full animate-pulse"></span>
             </div>
             <div>
               <h3 className="text-white font-bold text-base tracking-tight flex items-center gap-1">
-                Agung AI <span className="text-[10px] bg-cyan-500/20 text-cyan-300 px-1.5 py-0.5 rounded border border-cyan-500/20">PRO</span>
+                Gold Pulse AI <span className="text-[10px] bg-yellow-500/20 text-yellow-400 px-1.5 py-0.5 rounded border border-yellow-500/20">VIP</span>
               </h3>
               <p className="text-xs text-slate-300 flex items-center gap-1">
-                Automation Expert
+                Support & Signal Info
               </p>
             </div>
           </div>
@@ -167,10 +167,10 @@ const ChatWidget = () => {
           </div>
         </div>
 
-        <div className="flex-1 overflow-y-auto p-4 space-y-5 scrollbar-thin scrollbar-thumb-cyan-900/50 scrollbar-track-transparent">
+        <div className="flex-1 overflow-y-auto p-4 space-y-5 scrollbar-thin scrollbar-thumb-yellow-900/50 scrollbar-track-transparent">
             <div className="text-center">
-                <span className="text-[10px] bg-space-800/50 text-slate-500 px-3 py-1 rounded-full border border-white/5">
-                    Hari ini
+                <span className="text-[10px] bg-white/5 text-slate-500 px-3 py-1 rounded-full border border-white/5">
+                    Live Chat
                 </span>
             </div>
 
@@ -181,7 +181,7 @@ const ChatWidget = () => {
             >
               <div className={`
                 w-7 h-7 rounded-full flex items-center justify-center flex-shrink-0 text-[10px] shadow-md
-                ${msg.sender === 'user' ? 'bg-slate-700 text-slate-300' : 'bg-gradient-to-tr from-cyan-500 to-blue-600 text-white'}
+                ${msg.sender === 'user' ? 'bg-slate-700 text-slate-300' : 'bg-gradient-to-tr from-yellow-400 to-yellow-600 text-black'}
               `}>
                 {msg.sender === 'user' ? <User size={14} /> : <Bot size={14} />}
               </div>
@@ -189,13 +189,13 @@ const ChatWidget = () => {
               <div className={`
                 max-w-[85%] p-3.5 text-sm leading-relaxed shadow-md
                 ${msg.sender === 'user' 
-                  ? 'bg-cyan-600 text-white rounded-2xl rounded-br-none' 
-                  : 'bg-space-800 border border-white/5 text-slate-200 rounded-2xl rounded-bl-none'}
+                  ? 'bg-slate-800 border border-white/10 text-white rounded-2xl rounded-br-none' 
+                  : 'bg-gradient-to-br from-yellow-500 to-yellow-600 text-black font-medium rounded-2xl rounded-bl-none'}
               `}>
                 <div className="whitespace-pre-wrap">
                   {msg.sender === 'ai' ? formatMessage(msg.text) : msg.text}
                 </div>
-                <div className={`text-[10px] mt-1.5 flex items-center gap-1 ${msg.sender === 'user' ? 'text-cyan-100 justify-end' : 'text-slate-500'}`}>
+                <div className={`text-[10px] mt-1.5 flex items-center gap-1 ${msg.sender === 'user' ? 'text-slate-400 justify-end' : 'text-black/60'}`}>
                     {msg.timestamp.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
                 </div>
               </div>
@@ -204,13 +204,13 @@ const ChatWidget = () => {
 
           {isTyping && (
             <div className="flex items-end gap-2">
-               <div className="w-7 h-7 rounded-full bg-gradient-to-tr from-cyan-500 to-blue-600 flex items-center justify-center flex-shrink-0">
-                  <Bot size={14} className="text-white" />
+               <div className="w-7 h-7 rounded-full bg-gradient-to-tr from-yellow-400 to-yellow-600 flex items-center justify-center flex-shrink-0">
+                  <Bot size={14} className="text-black" />
                </div>
-               <div className="bg-space-800 border border-white/5 p-4 rounded-2xl rounded-bl-none flex gap-1.5 items-center h-10 shadow-md">
-                  <span className="w-1.5 h-1.5 bg-cyan-400 rounded-full animate-bounce"></span>
-                  <span className="w-1.5 h-1.5 bg-cyan-400 rounded-full animate-bounce delay-100"></span>
-                  <span className="w-1.5 h-1.5 bg-cyan-400 rounded-full animate-bounce delay-200"></span>
+               <div className="bg-white/5 border border-white/10 p-4 rounded-2xl rounded-bl-none flex gap-1.5 items-center h-10 shadow-md">
+                  <span className="w-1.5 h-1.5 bg-yellow-500 rounded-full animate-bounce"></span>
+                  <span className="w-1.5 h-1.5 bg-yellow-500 rounded-full animate-bounce delay-100"></span>
+                  <span className="w-1.5 h-1.5 bg-yellow-500 rounded-full animate-bounce delay-200"></span>
                </div>
             </div>
           )}
@@ -218,16 +218,16 @@ const ChatWidget = () => {
           <div ref={messagesEndRef} />
         </div>
 
-        <form onSubmit={handleSendMessage} className="p-3 bg-space-950/80 border-t border-white/10 backdrop-blur-md">
+        <form onSubmit={handleSendMessage} className="p-3 bg-[#050505]/80 border-t border-yellow-500/10 backdrop-blur-md">
           <div className="relative flex items-center group">
             <input
               ref={inputRef}
               type="text"
               value={inputValue}
               onChange={(e) => setInputValue(e.target.value)}
-              placeholder="Ketik pertanyaan Anda..."
+              placeholder="Tulis pesan..."
               disabled={isTyping}
-              className="w-full bg-space-900 text-white text-sm rounded-xl pl-4 pr-12 py-3.5 border border-white/10 focus:outline-none focus:border-cyan-500/50 focus:ring-2 focus:ring-cyan-500/20 transition-all placeholder:text-slate-600 shadow-inner"
+              className="w-full bg-[#0a0f1c] text-white text-sm rounded-xl pl-4 pr-12 py-3.5 border border-white/10 focus:outline-none focus:border-yellow-500/50 focus:ring-2 focus:ring-yellow-500/20 transition-all placeholder:text-slate-600 shadow-inner"
             />
             <button 
               type="submit"
@@ -236,7 +236,7 @@ const ChatWidget = () => {
                 absolute right-2 p-2 rounded-lg transition-all duration-300
                 ${!inputValue.trim() || isTyping 
                   ? 'bg-slate-800 text-slate-600 cursor-not-allowed' 
-                  : 'bg-cyan-500 text-space-900 hover:bg-cyan-400 hover:scale-105 shadow-[0_0_15px_rgba(6,182,212,0.4)]'}
+                  : 'bg-yellow-500 text-black hover:bg-yellow-400 hover:scale-105 shadow-[0_0_15px_rgba(234,179,8,0.4)]'}
               `}
             >
               {isTyping ? <Loader2 size={18} className="animate-spin" /> : <Send size={18} className="ml-0.5" />}
@@ -244,7 +244,7 @@ const ChatWidget = () => {
           </div>
           <div className="text-center mt-2.5">
             <p className="text-[9px] text-slate-600 uppercase tracking-widest font-medium">
-               Powered by Google Gemini Pro
+               Gold Pulse Intelligence
             </p>
           </div>
         </form>
@@ -253,26 +253,26 @@ const ChatWidget = () => {
       <div className="flex items-center gap-4 relative z-50 pointer-events-auto">
         <div 
             className={`
-                hidden md:flex items-center gap-2 bg-white text-space-900 px-4 py-2.5 rounded-full shadow-[0_0_20px_rgba(255,255,255,0.3)] 
-                cursor-pointer transition-all duration-500 origin-right hover:scale-105 hover:shadow-[0_0_30px_rgba(6,182,212,0.5)]
+                hidden md:flex items-center gap-2 bg-yellow-500 text-black px-4 py-2.5 rounded-full shadow-[0_0_20px_rgba(234,179,8,0.3)] 
+                cursor-pointer transition-all duration-500 origin-right hover:scale-105 hover:bg-yellow-400 hover:shadow-[0_0_30px_rgba(234,179,8,0.5)]
                 ${isOpen ? 'opacity-0 translate-x-10 pointer-events-none scale-90' : 'opacity-100 translate-x-0 scale-100 animate-float'}
             `}
             onClick={() => setIsOpen(true)}
         >
             <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-cyan-500"></span>
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-black opacity-30"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-black/80"></span>
             </span>
-            <span className="font-bold text-sm">Tanya Agung AI</span>
-            <ChevronRight size={16} className="text-cyan-600" />
+            <span className="font-bold text-sm">Tanya Admin</span>
+            <ChevronRight size={16} className="text-black" />
         </div>
 
         <button
             onClick={() => setIsOpen(!isOpen)}
             className={`
             group flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 rounded-full 
-            bg-gradient-to-r from-cyan-500 to-blue-600 text-white shadow-[0_0_30px_rgba(6,182,212,0.4)]
-            border border-white/20 hover:shadow-[0_0_50px_rgba(6,182,212,0.6)] hover:border-white/50
+            bg-gradient-to-r from-yellow-400 to-yellow-600 text-black shadow-[0_0_30px_rgba(234,179,8,0.4)]
+            border border-white/20 hover:shadow-[0_0_50px_rgba(234,179,8,0.6)] hover:border-white/50
             transition-all duration-500 z-50
             ${isOpen ? 'rotate-90 scale-90' : 'rotate-0 hover:-translate-y-1 scale-100'}
             `}
@@ -281,7 +281,7 @@ const ChatWidget = () => {
             {!isOpen && (
             <span className="absolute top-0 right-0 flex h-4 w-4 sm:h-5 sm:w-5 -mt-1 -mr-1">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-4 w-4 sm:h-5 sm:w-5 bg-red-500 border-2 border-space-900 text-[9px] items-center justify-center font-bold text-white">1</span>
+                <span className="relative inline-flex rounded-full h-4 w-4 sm:h-5 sm:w-5 bg-red-500 border-2 border-black text-[9px] items-center justify-center font-bold text-white">1</span>
             </span>
             )}
         </button>

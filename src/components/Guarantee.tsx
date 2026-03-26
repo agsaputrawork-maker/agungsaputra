@@ -7,11 +7,11 @@ export default function Guarantee() {
 
   return (
     <section 
-      className="py-16 md:py-24 relative z-10 overflow-hidden" 
+      className="py-16 md:py-24 relative z-10 overflow-hidden bg-[#0a0f1c]" 
       ref={sectionRef}
       aria-labelledby="guarantee-heading"
     >
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(34,197,94,0.03)_0%,transparent_60%)] pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(234,179,8,0.05)_0%,transparent_60%)] pointer-events-none" />
 
       <div 
         className={cn(
@@ -19,18 +19,18 @@ export default function Guarantee() {
           isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
         )}
       >
-        <div className="relative group rounded-[2.5rem] p-[1px] overflow-hidden bg-gradient-to-b from-green-500/40 via-green-500/5 to-transparent shadow-[0_20px_40px_rgba(0,0,0,0.4)]">
+        <div className="relative group rounded-[2.5rem] p-[1px] overflow-hidden bg-gradient-to-b from-yellow-500/40 via-yellow-500/5 to-transparent shadow-[0_20px_40px_rgba(0,0,0,0.4)]">
           <div className="absolute inset-0 bg-[#050505] rounded-[2.5rem]" />
           
-          <div className="relative bg-green-500/5 backdrop-blur-xl p-10 md:p-14 rounded-[2.5rem] text-center overflow-hidden transition-colors duration-500 group-hover:bg-green-500/10">
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-lg h-32 bg-green-500/20 blur-[80px] rounded-full pointer-events-none transition-opacity duration-700 opacity-50 group-hover:opacity-100" />
+          <div className="relative bg-yellow-500/5 backdrop-blur-xl p-10 md:p-14 rounded-[2.5rem] text-center overflow-hidden transition-colors duration-500 group-hover:bg-yellow-500/10">
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-lg h-32 bg-yellow-500/10 blur-[80px] rounded-full pointer-events-none transition-opacity duration-700 opacity-50 group-hover:opacity-100" />
             
             <div 
-              className="mx-auto w-16 h-16 md:w-20 md:h-20 bg-green-500/10 border border-green-500/20 rounded-2xl md:rounded-full flex items-center justify-center mb-8 shadow-[0_0_30px_rgba(34,197,94,0.15)] group-hover:shadow-[0_0_40px_rgba(34,197,94,0.3)] transition-all duration-500 group-hover:-translate-y-2"
+              className="mx-auto w-16 h-16 md:w-20 md:h-20 bg-yellow-500/10 border border-yellow-500/20 rounded-2xl md:rounded-full flex items-center justify-center mb-8 shadow-[0_0_30px_rgba(234,179,8,0.15)] group-hover:shadow-[0_0_40px_rgba(234,179,8,0.3)] transition-all duration-500 group-hover:-translate-y-2"
               aria-hidden="true"
             >
               <svg 
-                className="w-8 h-8 md:w-10 md:h-10 text-green-400 drop-shadow-[0_0_8px_rgba(34,197,94,0.5)]" 
+                className="w-8 h-8 md:w-10 md:h-10 text-yellow-400 drop-shadow-[0_0_8px_rgba(234,179,8,0.5)]" 
                 fill="none" 
                 viewBox="0 0 24 24" 
                 stroke="currentColor"
@@ -42,12 +42,12 @@ export default function Guarantee() {
             <div className="relative z-10">
               <h2 
                 id="guarantee-heading" 
-                className="text-2xl md:text-3xl lg:text-4xl font-heading font-bold text-green-400 mb-6 tracking-tight group-hover:text-green-300 transition-colors"
+                className="text-2xl md:text-3xl lg:text-4xl font-heading font-bold text-yellow-400 mb-6 tracking-tight group-hover:text-yellow-300 transition-colors"
               >
-                Garansi 30 Hari AI Tweak & Maintenance
+                Garansi Bimbingan Sampai Bisa
               </h2>
               <p className="text-slate-300 md:text-lg leading-relaxed max-w-3xl mx-auto group-hover:text-slate-200 transition-colors">
-                Jika dalam 30 hari pertama AI membalas tidak sesuai <em className="text-white not-italic font-medium">brand voice</em>, saya akan kalibrasi ulang <em className="text-white not-italic font-medium">prompt</em>-nya hingga <strong className="text-green-400 font-semibold group-hover:text-green-300 transition-colors">99% akurat</strong>, <u className="decoration-green-500/50 underline-offset-4 font-medium text-white group-hover:decoration-green-400 transition-colors">tanpa biaya tambahan sepeser pun</u>.
+                Kami tidak menjanjikan kekayaan instan, tapi kami menjanjikan <strong className="text-white font-semibold">transparansi penuh</strong>. Jika Anda masih bingung cara entry atau menghitung lot, tim mentor kami siap membimbing <em className="text-white not-italic font-medium">1-on-1</em> hingga Anda paham, <u className="decoration-yellow-500/50 underline-offset-4 font-medium text-white group-hover:decoration-yellow-400 transition-colors">gratis selamanya</u>.
               </p>
             </div>
           </div>

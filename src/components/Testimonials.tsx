@@ -7,62 +7,71 @@ export default function Testimonials() {
   const [sectionRef, isVisible] = useIntersectionObserver();
 
   return (
-    <section className="py-32 relative z-10 bg-space-900" id="hasil" ref={sectionRef}>
+    <section className="py-32 relative z-10 bg-[#0a0f1c]" id="testimoni" ref={sectionRef}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className={cn("text-center mb-20 fade-up", isVisible && "is-visible")}>
-          <h2 className="text-4xl font-heading font-bold text-white mb-6">Bukti Nyata, Bukan Sekadar Teori.</h2>
-          <p className="text-lg text-slate-400">Klien yang telah mengotomatisasi mesin pencetak uang mereka.</p>
+          <h2 className="text-4xl font-heading font-bold text-white mb-6">Bukti Withdrawal, Bukan Omong Kosong.</h2>
+          <p className="text-lg text-slate-400">Kata mereka yang sudah berhenti deposit terus-menerus dan mulai menarik profit.</p>
         </div>
 
         <div className="grid md:grid-cols-3 gap-6">
-          <BentoCard className={cn("p-8 flex flex-col justify-between", isVisible && "is-visible")}>
+          <BentoCard className={cn("p-8 flex flex-col justify-between border-white/5 hover:border-yellow-500/30", isVisible && "is-visible")}>
             <div className="bento-content">
-              <div className="flex gap-1 mb-6 text-fuchsia-500">
+              <div className="flex gap-1 mb-6 text-yellow-500">
                 ★ ★ ★ ★ ★
               </div>
               <div className="space-y-4 mb-8 text-sm">
-                <p className="text-rose-400"><span className="font-semibold text-white">Masalah:</span> Kehilangan omzet B2B malam hari.</p>
-                <p className="text-cyan-400"><span className="font-semibold text-white">Solusi:</span> AI Sales Agent.</p>
-                <p className="text-slate-300 italic">"Bangun tidur tinggal cek mutasi. AI-nya cerdas, bantu klien pilih paket harga tanpa kelihatan seperti robot. ROI bulan pertama nutup biaya pembuatan!"</p>
+                <p className="text-red-400"><span className="font-semibold text-white">Sebelum Join:</span> Sering Margin Call (MC) & FOMO.</p>
+                <p className="text-green-400"><span className="font-semibold text-white">Sekarang:</span> Profit Harian $30 - $50 Stabil.</p>
+                <p className="text-slate-300 italic">"Dulu asal liat candle hijau langsung buy, ujungnya nyangkut di pucuk. Di Gold Pulse diajarin sabar nunggu area supply. Winrate signal-nya ngeri, TP 2 sering banget kejemput."</p>
               </div>
             </div>
-            <div className="bento-content border-t border-white/10 pt-4">
-              <p className="font-bold text-white">Budi Pratama</p>
-              <p className="text-xs text-slate-500">Founder, TechNesia</p>
+            <div className="bento-content border-t border-white/10 pt-4 flex items-center gap-3">
+              <div className="w-10 h-10 rounded-full bg-slate-700 flex items-center justify-center text-white font-bold">R</div>
+              <div>
+                <p className="font-bold text-white">Rian Santoso</p>
+                <p className="text-xs text-slate-500">Trader Pemula (3 Bulan)</p>
+              </div>
             </div>
           </BentoCard>
 
-          <BentoCard className={cn("p-8 flex flex-col justify-between", isVisible && "is-visible")} delay={100}>
+          <BentoCard className={cn("p-8 flex flex-col justify-between border-white/5 hover:border-yellow-500/30", isVisible && "is-visible")} delay={100}>
             <div className="bento-content">
-              <div className="flex gap-1 mb-6 text-fuchsia-500">
+              <div className="flex gap-1 mb-6 text-yellow-500">
                 ★ ★ ★ ★ ★
               </div>
               <div className="space-y-4 mb-8 text-sm">
-                <p className="text-rose-400"><span className="font-semibold text-white">Masalah:</span> Conversion rate web di bawah 1%.</p>
-                <p className="text-cyan-400"><span className="font-semibold text-white">Solusi:</span> CRO Web + Webhook.</p>
-                <p className="text-slate-300 italic">"Mas Agung ngerti psikologi orang beli. Web baru ini loadingnya ngebut, copy-nya nendang, dan otomatis kirim notif ke WA tiap ada lead masuk."</p>
+                <p className="text-red-400"><span className="font-semibold text-white">Sebelum Join:</span> Sibuk kerja, gak sempat analisa.</p>
+                <p className="text-green-400"><span className="font-semibold text-white">Sekarang:</span> Passive Income dari Copy Signal.</p>
+                <p className="text-slate-300 italic">"Saya karyawan, gak bisa pantengin chart seharian. Fitur notifikasi signal-nya ngebantu banget. Tinggal pasang angka Entry, SL, TP sesuai instruksi admin, ditinggal kerja tau-tau profit."</p>
               </div>
             </div>
-            <div className="bento-content border-t border-white/10 pt-4">
-              <p className="font-bold text-white">Sarah Wijaya</p>
-              <p className="text-xs text-slate-500">Dir. Marketing, Optima Corp</p>
+            <div className="bento-content border-t border-white/10 pt-4 flex items-center gap-3">
+              <div className="w-10 h-10 rounded-full bg-slate-700 flex items-center justify-center text-white font-bold">D</div>
+              <div>
+                <p className="font-bold text-white">Diana Putri</p>
+                <p className="text-xs text-slate-500">Karyawan Swasta</p>
+              </div>
             </div>
           </BentoCard>
 
-          <BentoCard className={cn("p-8 flex flex-col justify-between", isVisible && "is-visible")} delay={200}>
+          <BentoCard className={cn("p-8 flex flex-col justify-between border-white/5 hover:border-yellow-500/30", isVisible && "is-visible")} delay={200}>
             <div className="bento-content">
-              <div className="flex gap-1 mb-6 text-fuchsia-500">
+              <div className="flex gap-1 mb-6 text-yellow-500">
                 ★ ★ ★ ★ ★
               </div>
               <div className="space-y-4 mb-8 text-sm">
-                <p className="text-rose-400"><span className="font-semibold text-white">Masalah:</span> Gaji 3 admin bengkak, human error tinggi.</p>
-                <p className="text-cyan-400"><span className="font-semibold text-white">Solusi:</span> Full AI Operational.</p>
-                <p className="text-slate-300 italic">"Terima kasih banget! Biaya CS hemat drastis. AI-nya konsisten dan nggak pernah komplain. Tim manusia sekarang fokus hal strategis."</p>
+                <p className="text-red-400"><span className="font-semibold text-white">Sebelum Join:</span> Gagal terus Challenge Prop Firm.</p>
+                <p className="text-green-400"><span className="font-semibold text-white">Sekarang:</span> Funded Trader $10k.</p>
+                <p className="text-slate-300 italic">"Risk Reward Ratio (RR) di grup ini sehat banget, minimal 1:2. Makanya akun tumbuh pelan tapi pasti. Akhirnya bulan lalu lulus fase evaluasi prop firm berkat signal Gold Pulse."</p>
               </div>
             </div>
-            <div className="bento-content border-t border-white/10 pt-4">
-              <p className="font-bold text-white">David Hermawan</p>
-              <p className="text-xs text-slate-500">Owner, Sinergi Retail</p>
+            <div className="bento-content border-t border-white/10 pt-4 flex items-center gap-3">
+              <div className="w-10 h-10 rounded-full bg-slate-700 flex items-center justify-center text-white font-bold">A</div>
+              <div>
+                <p className="font-bold text-white">Aditya Nugraha</p>
+                <p className="text-xs text-slate-500">Full-time Trader</p>
+              </div>
             </div>
           </BentoCard>
         </div>

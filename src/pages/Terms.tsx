@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { MoveLeft, Scale, AlertCircle, CheckCircle, FileText, Ban } from 'lucide-react';
+import { MoveLeft, Scale, AlertCircle, CheckCircle, FileText, Ban, AlertTriangle } from 'lucide-react';
 
 const Terms = () => {
   useEffect(() => {
@@ -8,7 +8,7 @@ const Terms = () => {
   }, []);
 
   return (
-    <div className="min-h-screen pt-32 pb-20 px-4 sm:px-6 relative z-10">
+    <div className="min-h-screen pt-32 pb-20 px-4 sm:px-6 relative z-10 bg-[#0a0f1c]">
       
       {/* Container */}
       <div className="max-w-4xl mx-auto">
@@ -17,93 +17,95 @@ const Terms = () => {
         <div className="mb-16">
           <Link 
             to="/" 
-            className="inline-flex items-center gap-2 text-cyan-500 hover:text-cyan-400 mb-8 transition-colors group"
+            className="inline-flex items-center gap-2 text-yellow-500 hover:text-yellow-400 mb-8 transition-colors group"
           >
             <MoveLeft className="w-4 h-4 transition-transform group-hover:-translate-x-1" />
             Kembali ke Beranda
           </Link>
           
           <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
-            Terms & <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-600">Conditions</span>
+            Terms & <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-yellow-600">Disclaimer</span>
           </h1>
           
-          <div className="flex items-center gap-4 text-sm text-slate-500 border-l-2 border-cyan-500/30 pl-4">
+          <div className="flex items-center gap-4 text-sm text-slate-500 border-l-2 border-yellow-500/30 pl-4">
             <p>Terakhir diperbarui: {new Date().toLocaleDateString('id-ID', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
             <span>•</span>
-            <p>Syarat Penggunaan Agung System</p>
+            <p>Penting untuk Trader Gold Pulse Scalper</p>
           </div>
         </div>
         <div className="space-y-12 text-slate-300 leading-relaxed">
-          <section className="bg-space-800/50 p-8 rounded-3xl border border-white/5 hover:border-cyan-500/20 transition-all duration-300">
+          
+          <section className="bg-red-500/10 p-8 rounded-3xl border border-red-500/20 hover:border-red-500/40 transition-all duration-300">
             <div className="flex items-start gap-4 mb-4">
-              <div className="p-3 bg-cyan-500/10 rounded-xl">
-                <FileText className="w-6 h-6 text-cyan-400" />
+              <div className="p-3 bg-red-500/20 rounded-xl">
+                <AlertTriangle className="w-6 h-6 text-red-500" />
               </div>
-              <h2 className="text-2xl font-bold text-white mt-2">1. Persetujuan Syarat</h2>
+              <h2 className="text-2xl font-bold text-white mt-2">1. Peringatan Risiko Tinggi (Risk Disclosure)</h2>
             </div>
-            <p className="text-slate-400">
-              Dengan mengakses atau menggunakan situs web dan layanan <strong>Agung System</strong>, Anda setuju untuk terikat oleh Syarat dan Ketentuan ini. Jika Anda tidak setuju dengan bagian mana pun dari syarat ini, maka Anda tidak diizinkan untuk mengakses layanan kami.
+            <p className="text-slate-300 mb-4">
+              Trading Forex dan Komoditas (XAUUSD/Gold) melibatkan risiko yang signifikan dan mungkin tidak cocok untuk semua investor. Tingkat leverage yang tinggi dapat bekerja melawan Anda maupun untuk Anda.
+            </p>
+            <p className="text-slate-300 font-bold">
+              Sebelum memutuskan untuk trading, Anda harus mempertimbangkan tujuan investasi, tingkat pengalaman, dan selera risiko Anda. Ada kemungkinan Anda bisa kehilangan sebagian atau seluruh investasi awal Anda. Jangan investasikan uang yang Anda tidak mampu untuk kehilangan (uang panas).
             </p>
           </section>
 
           <section>
             <div className="flex items-center gap-3 mb-6">
-              <CheckCircle className="w-6 h-6 text-cyan-500" />
-              <h2 className="text-2xl font-bold text-white">2. Akun Pengguna</h2>
+              <FileText className="w-6 h-6 text-yellow-500" />
+              <h2 className="text-2xl font-bold text-white">2. Sifat Layanan</h2>
             </div>
             <div className="pl-9 space-y-4 text-slate-400">
               <p>
-                Saat Anda membuat akun di sistem kami, Anda harus memberikan informasi yang akurat, lengkap, dan terkini. Kegagalan untuk melakukannya merupakan pelanggaran terhadap Syarat, yang dapat mengakibatkan penghentian segera akun Anda.
+                <strong>Gold Pulse Scalper</strong> adalah penyedia layanan edukasi dan informasi pasar. Signal trading yang kami berikan hanyalah referensi berdasarkan analisa teknikal kami.
               </p>
-              <div className="bg-space-950 p-6 rounded-xl border-l-4 border-cyan-500">
-                <strong className="text-white block mb-2">Tanggung Jawab Keamanan:</strong>
-                Anda bertanggung jawab untuk menjaga kata sandi yang Anda gunakan untuk mengakses layanan dan untuk segala aktivitas atau tindakan di bawah kata sandi Anda.
+              <div className="bg-white/5 p-6 rounded-xl border-l-4 border-yellow-500">
+                <strong className="text-white block mb-2">Bukan Penasihat Keuangan:</strong>
+                Segala keputusan Entry (Buy/Sell), Stop Loss, dan Take Profit sepenuhnya berada di tangan Anda. Kami tidak bertanggung jawab atas kerugian finansial yang mungkin terjadi akibat mengikuti signal kami.
               </div>
             </div>
           </section>
           
           <section>
             <div className="flex items-center gap-3 mb-6">
-              <Scale className="w-6 h-6 text-cyan-500" />
-              <h2 className="text-2xl font-bold text-white">3. Kekayaan Intelektual</h2>
+              <CheckCircle className="w-6 h-6 text-yellow-500" />
+              <h2 className="text-2xl font-bold text-white">3. Keanggotaan & Akses</h2>
             </div>
             <div className="pl-9 text-slate-400">
               <p>
-                Layanan dan konten aslinya (tidak termasuk Konten yang disediakan oleh pengguna), fitur, dan fungsionalitas adalah dan akan tetap menjadi milik eksklusif Agung System dan pemberi lisensinya. Layanan ini dilindungi oleh hak cipta, merek dagang, dan hukum negara Indonesia.
+                Akses ke grup VIP diberikan secara gratis dengan syarat mendaftar melalui link broker partner kami (IB). Kami berhak mencabut akses keanggotaan jika ditemukan akun trading tidak aktif (tidak ada transaksi) selama periode tertentu atau melakukan pelanggaran komunitas.
               </p>
             </div>
           </section>
 
-          <section className="bg-red-500/5 p-8 rounded-3xl border border-red-500/10">
-            <div className="flex items-start gap-4 mb-4">
-              <div className="p-3 bg-red-500/10 rounded-xl">
-                <Ban className="w-6 h-6 text-red-400" />
-              </div>
-              <h2 className="text-2xl font-bold text-white mt-2">4. Aktivitas yang Dilarang</h2>
+          <section>
+            <div className="flex items-center gap-3 mb-6">
+              <Ban className="w-6 h-6 text-red-500" />
+              <h2 className="text-2xl font-bold text-white">4. Larangan Keras</h2>
             </div>
-            <ul className="list-disc space-y-3 pl-5 text-slate-400 marker:text-red-500">
-              <li>Menggunakan layanan untuk tujuan ilegal atau tidak sah.</li>
-              <li>Mencoba mengganggu atau merusak integritas atau kinerja sistem.</li>
-              <li>Mencoba mendapatkan akses tidak sah ke sistem atau jaringan terkait.</li>
-              <li>Menyalin, memodifikasi, atau mendistribusikan ulang bagian mana pun dari layanan tanpa izin.</li>
+            <ul className="list-disc space-y-3 pl-14 text-slate-400 marker:text-red-500">
+              <li>Menjual kembali (Reselling) signal Gold Pulse Scalper ke pihak lain.</li>
+              <li>Membagikan screenshot area VIP ke grup publik tanpa izin.</li>
+              <li>Melakukan spam atau promosi layanan lain di dalam grup komunitas.</li>
+              <li>Menggunakan bahasa kasar, SARA, atau memicu keributan (FUD) saat market floating.</li>
             </ul>
           </section>
 
           <section>
             <div className="flex items-center gap-3 mb-6">
-              <AlertCircle className="w-6 h-6 text-cyan-500" />
+              <Scale className="w-6 h-6 text-yellow-500" />
               <h2 className="text-2xl font-bold text-white">5. Batasan Tanggung Jawab</h2>
             </div>
             <div className="pl-9 text-slate-400">
               <p>
-                Agung System tidak bertanggung jawab atas kerugian tidak langsung, insidental, khusus, konsekuensial, atau hukuman, termasuk namun tidak terbatas pada, hilangnya keuntungan, data, penggunaan, goodwill, atau kerugian tidak berwujud lainnya.
+                Kinerja masa lalu (Backtest/History) tidak menjamin hasil di masa depan. Market bergerak dinamis dan dipengaruhi oleh faktor fundamental global yang di luar kendali kami. Kami tidak memberikan jaminan profit pasti (Fixed Income).
               </p>
             </div>
           </section>
 
           <div className="mt-20 pt-10 border-t border-white/10 text-center">
             <p className="text-slate-500 italic">
-              "Kami berhak, atas kebijakan kami sendiri, untuk memodifikasi atau mengganti Syarat ini kapan saja."
+              "Dengan bergabung, Anda menyatakan telah membaca, memahami, dan menyetujui risiko yang terlibat dalam perdagangan derivatif keuangan."
             </p>
           </div>
 

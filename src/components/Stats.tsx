@@ -35,29 +35,29 @@ export default function Stats() {
   const [sectionRef, isVisible] = useIntersectionObserver();
 
   return (
-    <section className="py-24 relative z-10 border-y border-white/5 bg-white/[0.01]" ref={sectionRef}>
+    <section className="py-24 relative z-10 border-y border-white/5 bg-[#0a0f1c]" ref={sectionRef}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-3 gap-12 text-center divide-y md:divide-y-0 md:divide-x divide-white/10">
           <div className={cn("fade-up py-4", isVisible && "is-visible")}>
-            <h3 className="text-6xl font-heading font-black text-transparent bg-clip-text bg-gradient-to-b from-white to-slate-500 mb-2">
-              <Counter target={3} duration={1000} />s
+            <h3 className="text-6xl font-heading font-black text-transparent bg-clip-text bg-gradient-to-b from-yellow-300 to-yellow-600 mb-2">
+              <Counter target={70} duration={1500} />%
             </h3>
-            <p className="text-lg text-white font-medium">Waktu Respons</p>
-            <p className="text-sm text-slate-500 mt-2">Kalahkan kompetitor lambat.</p>
+            <p className="text-lg text-white font-medium">Win Rate Rata-rata</p>
+            <p className="text-sm text-slate-500 mt-2">Konsisten & terukur tiap bulan.</p>
           </div>
           <div className={cn("fade-up py-4", isVisible && "is-visible")} style={{ transitionDelay: '100ms' }}>
-            <h3 className="text-6xl font-heading font-black text-transparent bg-clip-text bg-gradient-to-b from-cyan-400 to-blue-600 mb-2">
-              <Counter target={24} duration={1500} />/7
+            <h3 className="text-6xl font-heading font-black text-transparent bg-clip-text bg-gradient-to-b from-white to-slate-400 mb-2">
+              <Counter target={1000} duration={2000} />+
             </h3>
-            <p className="text-lg text-white font-medium">Sistem Aktif</p>
-            <p className="text-sm text-slate-500 mt-2">Tanpa cuti, tanpa sakit.</p>
+            <p className="text-lg text-white font-medium">Trader Bergabung</p>
+            <p className="text-sm text-slate-500 mt-2">Komunitas aktif belajar bareng.</p>
           </div>
           <div className={cn("fade-up py-4", isVisible && "is-visible")} style={{ transitionDelay: '200ms' }}>
-            <h3 className="text-6xl font-heading font-black text-transparent bg-clip-text bg-gradient-to-b from-fuchsia-400 to-purple-600 mb-2">
-              <Counter target={80} duration={2000} />%
+            <h3 className="text-6xl font-heading font-black text-transparent bg-clip-text bg-gradient-to-b from-green-400 to-green-600 mb-2">
+              <Counter target={600} duration={2000} />+
             </h3>
-            <p className="text-lg text-white font-medium">Hemat Operasional</p>
-            <p className="text-sm text-slate-500 mt-2">Potong pengeluaran gaji.</p>
+            <p className="text-lg text-white font-medium">Pips Profit / Bulan</p>
+            <p className="text-sm text-slate-500 mt-2">Akumulasi profit bersih.</p>
           </div>
         </div>
       </div>
