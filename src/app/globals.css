@@ -1,0 +1,19 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-gold: #F59E0B; /* amber-500 */
+  --color-brand-fire: #EA580C; /* orange-600 */
+  --color-brand-dark: #09090b;
+  --color-brand-card: #18181b;
+}
+
+body {
+  @apply bg-[#050505] text-gray-200;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Hide scrollbar for a cleaner mobile feel */
+::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
+}
