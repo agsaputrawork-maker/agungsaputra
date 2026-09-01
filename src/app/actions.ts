@@ -194,31 +194,16 @@ export async function deleteClient(id: string) {
 }
 
 export async function checkServerStatus() {
-  const host = process.env.TCP_HOST || 'localhost'
-  const port = parseInt(process.env.TCP_PORT || '8080')
-
-  return new Promise<{ online: boolean }>((resolve) => {
-    try {
-      const net = require('net')
-      const socket = new net.Socket()
-      
-      socket.setTimeout(2000)
-      socket.on('connect', () => {
-        socket.destroy()
-        resolve({ online: true })
-      })
-      socket.on('timeout', () => {
-        socket.destroy()
-        resolve({ online: false })
-      })
-      socket.on('error', () => {
-        resolve({ online: false })
-      })
-      socket.connect(port, host)
-    } catch (e) {
-      resolve({ online: false })
+  const apiUrl = process.env.PYTHON_API_URL || 'http://localhost:8080'
+  try {
+    const res = await fetch(`${apiUrl}/status`, { cache: 'no-store', signal: AbortSignal.timeout(2000) })
+    if (res.ok) {
+      return { online: true }
     }
-  })
+  } catch (e) {
+    // ignore
+  }
+  return { online: false }
 }
 
 export async function getConnectedEAs() {
