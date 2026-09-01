@@ -202,22 +202,18 @@ export async function checkServerStatus() {
       const net = require('net')
       const socket = new net.Socket()
       
-      socket.setTimeout(2000) // 2 second timeout
-      
+      socket.setTimeout(2000)
       socket.on('connect', () => {
         socket.destroy()
         resolve({ online: true })
       })
-      
       socket.on('timeout', () => {
         socket.destroy()
         resolve({ online: false })
       })
-      
       socket.on('error', () => {
         resolve({ online: false })
       })
-      
       socket.connect(port, host)
     } catch (e) {
       resolve({ online: false })
@@ -226,11 +222,10 @@ export async function checkServerStatus() {
 }
 
 export async function getConnectedEAs() {
-  const host = process.env.TCP_HOST || 'localhost'
-  const port = parseInt(process.env.TCP_PORT || '8080') + 1
+  const apiUrl = process.env.PYTHON_API_URL || 'http://localhost:8080'
 
   try {
-    const res = await fetch(`http://${host}:${port}/status`, { cache: 'no-store', signal: AbortSignal.timeout(2000) })
+    const res = await fetch(`${apiUrl}/status`, { cache: 'no-store', signal: AbortSignal.timeout(2000) })
     if (res.ok) {
       const data = await res.json()
       return data.connected_eas || []
