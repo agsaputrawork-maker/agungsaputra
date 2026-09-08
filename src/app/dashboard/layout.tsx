@@ -8,6 +8,8 @@ import { logout } from '@/app/login/actions'
 import AutoLogoutProvider from './AutoLogoutProvider'
 import ServerStatusBadge from './ServerStatusBadge'
 
+import FreeSignalToggle from './FreeSignalToggle'
+
 export default function DashboardLayout({ children }: { children: React.ReactNode }) {
   const pathname = usePathname()
 
@@ -54,6 +56,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
 
           <div className="hidden md:block mt-auto pt-6 border-t border-gray-800 space-y-4">
             <ServerStatusBadge />
+            <FreeSignalToggle />
             <form action={logout}>
               <button className="flex w-full items-center gap-4 px-4 py-3 rounded-2xl hover:bg-red-500/10 text-red-500 text-sm font-bold transition-all">
                 <LogOut className="w-5 h-5" />
@@ -75,7 +78,8 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
                 GOLDZONFIRE
               </h1>
             </div>
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-2 md:gap-3">
+              <FreeSignalToggle />
               <ServerStatusBadge />
               <form action={logout}>
                 <button className="p-2 text-gray-400 hover:text-red-400 hover:bg-gray-800 rounded-full active:scale-95 transition-all">
