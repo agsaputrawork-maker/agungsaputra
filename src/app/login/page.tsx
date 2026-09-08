@@ -47,7 +47,7 @@ export default function LoginPage() {
         {/* LEFT SIDE (Desktop Only Logo & Features) */}
         <div className="hidden lg:flex flex-col items-start flex-1 w-full">
           <div className="relative w-72 h-72 mb-4">
-             <Image src="https://s6.imgcdn.dev/Y8iVa0.png" alt="GOLDZONFIRE Logo" fill className="object-contain drop-shadow-[0_0_30px_rgba(234,179,8,0.2)]" />
+             <Image src="https://s6.imgcdn.dev/Y8J3Vg.png" alt="GOLDZONFIRE Logo" fill className="object-contain drop-shadow-[0_0_30px_rgba(234,179,8,0.2)]" />
           </div>
           <h1 className="text-5xl font-black tracking-widest text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-yellow-200 to-yellow-600 mb-2">
             GOLDZONFIRE
@@ -94,7 +94,7 @@ export default function LoginPage() {
           {/* Mobile Logo (Hidden on Desktop) */}
           <div className="lg:hidden flex flex-col items-center mb-8">
             <div className="relative w-48 h-48 mb-2">
-               <Image src="https://s6.imgcdn.dev/Y8iVa0.png" alt="GOLDZONFIRE Logo" fill className="object-contain drop-shadow-[0_0_20px_rgba(234,179,8,0.2)]" />
+               <Image src="https://s6.imgcdn.dev/Y8J3Vg.png" alt="GOLDZONFIRE Logo" fill className="object-contain drop-shadow-[0_0_20px_rgba(234,179,8,0.2)]" />
             </div>
             <h1 className="text-3xl font-black tracking-widest text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-yellow-200 to-yellow-600 mb-1">
               GOLDZONFIRE
