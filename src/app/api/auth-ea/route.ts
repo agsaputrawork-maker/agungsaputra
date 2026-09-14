@@ -16,7 +16,15 @@ export async function POST(request: Request) {
       .eq('mt4_account', mt4_account)
       .single()
 
-    if (error || !client) {
+    if (error) {
+      if (error.code === 'PGRST116') {
+        // PostgREST 116 means zero rows returned (not found)
+        return NextResponse.json({ authorized: false, reason: 'Account not found or unregistered.' }, { status: 404 })
+      }
+      return NextResponse.json({ authorized: false, reason: `Database Error: ${error.message}` }, { status: 500 })
+    }
+
+    if (!client) {
       return NextResponse.json({ authorized: false, reason: 'Account not found or unregistered.' }, { status: 404 })
     }
 
